@@ -7,9 +7,7 @@
 !/01-gitlab-ai-code-reviewer/
 !/02-eks-aiops-log-anomaly/
 !/03-mlops-sagemaker-argocd/
-!/04-AI-Security-ThreatDetection.md
 !/04-ai-security-threat-detection/
-!/05-AI-FinOps-CostOptimizer.md
 !/05-ai-finops-cost-optimizer/
 
 # Inside whitelisted folders, ignore build and sensitive files
