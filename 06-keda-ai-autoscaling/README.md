@@ -68,7 +68,7 @@ Step 3 — Create the Target SQS Queue
 1. AWS Console -> SQS -> Create queue.
 2. Name: `ai-task-queue`.
 3. Type: Standard.
-4. Copy the Queue URL (e.g., `https://sqs.ap-south-1.amazonaws.com/123/ai-task-queue`).
+4. Copy the Queue URL (e.g., `https://sqs.us-east-1.amazonaws.com/123/ai-task-queue`).
 
 =======================================================================
 PART 3 — APPLICATION AND AUTOSCALER YAML
@@ -134,9 +134,9 @@ spec:
     authenticationRef:
       name: aws-sqs-auth
     metadata:
-      queueURL: "https://sqs.ap-south-1.amazonaws.com/032080729357/ai-task-queue"
+      queueURL: "https://sqs.us-east-1.amazonaws.com/032080729357/ai-task-queue"
       queueLength: "5" # Target: 1 pod for every 5 messages
-      awsRegion: "ap-south-1"
+      awsRegion: "us-east-1"
 ```
 `kubectl apply -f kubernetes/scaledobject.yaml`
 
@@ -155,13 +155,13 @@ spike in user traffic.
 1. Open a terminal and use the AWS CLI to flood the queue:
 ```bash
 for i in {1..100}; do
-  aws sqs send-message --queue-url "https://sqs.ap-south-1.amazonaws.com/032080729357/ai-task-queue" --message-body "Task $i"
+  aws sqs send-message --queue-url "https://sqs.us-east-1.amazonaws.com/032080729357/ai-task-queue" --message-body "Task $i"
 done
 ```
 
 ''' delete Q
 
-aws sqs purge-queue --queue-url "https://sqs.ap-south-1.amazonaws.com/032080729357/ai-task-queue"
+aws sqs purge-queue --queue-url "https://sqs.us-east-1.amazonaws.com/032080729357/ai-task-queue"
 
 
 '''

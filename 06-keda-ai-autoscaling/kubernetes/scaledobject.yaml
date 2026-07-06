@@ -24,6 +24,6 @@ spec:
     authenticationRef:
       name: aws-sqs-auth
     metadata:
-      queueURL: "https://sqs.ap-south-1.amazonaws.com/032080729357/ai-task-queue"
+      queueURL: "https://sqs.us-east-1.amazonaws.com/032080729357/ai-task-queue"
       queueLength: "5" # Target: 1 pod for every 5 messages
-      awsRegion: "ap-south-1"
+      awsRegion: "us-east-1"
